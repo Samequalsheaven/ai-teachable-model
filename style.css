@@ -76,7 +76,29 @@ header h1 {
     width: 100%;
     max-width: 400px;
     height: auto;
-    transform: scaleX(-1); /* Already flipped in JS usually, but depends on init */
+    /* Remove this if the mirror looks wrong. Teachable machine flips by default in JS. */
+    transform: scaleX(-1); 
+}
+
+.label-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.percentage {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    background: rgba(112, 0, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.prediction-item.active .percentage {
+    background: white;
+    color: var(--accent-color);
 }
 
 .status-indicator {

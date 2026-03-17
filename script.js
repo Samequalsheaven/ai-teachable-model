@@ -32,7 +32,10 @@ async function init() {
             const item = document.createElement("div");
             item.className = "prediction-item";
             item.innerHTML = `
-                <span class="label-name">${model.getClassLabels()[i]}</span>
+                <div class="label-header">
+                    <span class="label-name">${model.getClassLabels()[i]}</span>
+                    <span class="percentage">0%</span>
+                </div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 0%"></div>
                 </div>
@@ -61,7 +64,10 @@ async function predict() {
         if (!item) continue;
 
         const bar = item.querySelector(".progress-fill");
+        const percentText = item.querySelector(".percentage");
+        
         if (bar) bar.style.width = (prob * 100) + "%";
+        if (percentText) percentText.innerText = Math.round(prob * 100) + "%";
         
         // Highlight active prediction
         if (prob > 0.8) {
