@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gesture Recognition | Teachable Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gesture AI</h1>
+            <p class="subtitle">Real-time Recognition: Neutral, Peace, Thumbs Up</p>
+        </header>
+
+        <main>
+            <div class="card glass">
+                <div id="webcam-wrapper">
+                    <div id="webcam-container"></div>
+                    <div class="status-indicator" id="status-indicator">
+                        <span class="pulse"></span>
+                        Live
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="start-btn" class="primary-btn" onclick="init()">
+                        <span>Initialize Model</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    <div id="loading-spinner" class="hidden">
+                        <div class="spinner"></div>
+                        <p>Loading AI Model...</p>
+                    </div>
+                </div>
+
+                <div id="label-container" class="predictions-grid">
+                    <!-- Predictions will be injected here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Google Teachable Machine & TensorFlow.js</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
